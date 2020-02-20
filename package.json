@@ -65,12 +65,13 @@
     "sinon": "^1.17.5"
   },
   "scripts": {
+    "install": "npm run build",
     "lint": "eslint src test && flow",
     "test": "nodeunit --reporter minimal test/setup.js test/unit/ test/unit/token/ test/unit/tracking-buffer",
     "test-integration": "nodeunit --reporter minimal test/setup.js test/integration/",
     "test-all": "nodeunit --reporter minimal test/setup.js test/unit/ test/unit/token/ test/unit/tracking-buffer test/integration/",
     "build": "rimraf lib && babel src --out-dir lib",
-    "prepublish": "npm run build",
+    "prepublish": "npm install",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "babel": {
